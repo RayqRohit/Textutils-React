@@ -48,7 +48,7 @@ const App = () => {
 
 
           {/* render2 */}
-          <Route path="/" element={<Textform heading="Enter the text to Analyze" showAlert={showAlert} mode = {mode}/>} />
+          <Route path="/" element={<Textform heading="Try Textutils : Word Counter | Character counter | Lowercase to Uppercase | Uppercase to Lowercase " showAlert={showAlert} mode = {mode}/>} />
 
 
         </Routes>
