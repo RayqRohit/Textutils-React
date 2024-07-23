@@ -25,10 +25,12 @@ const App = () => {
     if (mode === "light") {
       setMode("dark")
       document.body.style.backgroundColor = "#042743"
+      showAlert("Dark mode has been enabled", "success")
     }
     else {
       setMode("light")
       document.body.style.backgroundColor = "white"
+      showAlert("Dark mode has been disabled", "success")
 
     }
   }
@@ -41,7 +43,7 @@ const App = () => {
         <Alert alert={alert} />
         <Routes>
           {/* render1 */}
-          <Route path="/about" element={<About heading="About us" />} />
+          <Route path="/about" element={<About mode={mode} heading="About us" accordianHeading="Analyze your text"/>} />
 
 
 

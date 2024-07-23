@@ -16,6 +16,9 @@ const Textform = (props) => {
         let newText = text.toUpperCase();
         setText(newText);
 
+
+        props.showAlert("Text Converted to Uppercase", "success");
+
     }
 
     const handleOnChange = (e) => {
@@ -91,23 +94,26 @@ const Textform = (props) => {
     return (
         <div>
             <div className='container'>
+                
                 <div className="mb-3 mt-5  ">
                     <label for="mybox" className={`form-label text-${props.mode === "dark" ? "light" : "dark"}`}>{props.heading}</label>
-                    <textarea className="form-control border border-secondary" id="mybox" rows="7" onChange={handleOnChange} value={text} ></textarea>
-                    <button type="button" className="btn btn-dark mt-3" onClick={handleUppercase}>Convert to Uppercase</button>
-                    <button type="button" className="btn btn-danger mt-3 mx-2" onClick={handleCount} >Count the Words</button>
-                    <button type="button" class="btn btn-primary mt-3 me-2" onClick={handleLowercase}>Convert to Lowercase</button>
-                    <button type='button' className='btn btn-warning mt-3 me-2' onClick={handleCapitalize}>Convert to Another Form</button>
-                    <button type='button' className='btn btn-danger mt-3 me-2' onClick={handleClear}>Clear the Area</button>
-                    <button type='button' className='btn btn-success mt-3' onClick={handleDontClick}>Dont Click</button>
+                    <textarea className="form-control border border-secondary" id="mybox" rows="7" onChange={handleOnChange} value={text} 
+                    style={{ backgroundColor : props.mode === "dark" ? "#13466e" : "white", color : props.mode === "dark" ? "white" : "black" }}
+                    ></textarea>
+                    <button type="button" className="btn btn-dark mt-3 my-1" onClick={handleUppercase}>Convert to Uppercase</button>
+                    <button type="button" className="btn btn-danger mt-3 mx-2 my-1" onClick={handleCount} >Count the Words</button>
+                    <button type="button" class="btn btn-primary mt-3 me-2 my-1" onClick={handleLowercase}>Convert to Lowercase</button>
+                    <button type='button' className='btn btn-warning mt-3 me-2 my-1' onClick={handleCapitalize}>Convert to Another Form</button>
+                    <button type='button' className='btn btn-danger mt-3 me-2 my-1' onClick={handleClear}>Clear the Area</button>
+                    <button type='button' className='btn btn-success mt-3 my-1' onClick={handleDontClick}>Dont Click</button>
 
                     <div className={`mt-3 text-${props.mode === "dark" ? "light" : "dark"}`}>
                         {/* <p>Total no of words are : {count}</p>
                         <p>Total no of characters are : {charCount}</p> */}
 
-                        <p>Total no of words are : {(text.split(" ").length) - 1}</p>
+                        <p>Total no of words are : {(text.split(" ").filter((e)=>{return e.length!==0}).length) }</p>
                         <p>Total no of characters are : {text.length}</p>
-                        <p>Time required to read this : {0.008 * ((text.split(" ").length) - 1) + " min"}</p>
+                        <p>Time required to read this : {0.008 * text.split(" ").filter((e)=>{return e.length!==0}).length  + " min"}</p>
                         <h3>Preview of the texts:</h3>
                         <span className=''>{text.length > 0 ? text : "Enter something to Preview here"}</span>
 
@@ -123,7 +129,7 @@ const Textform = (props) => {
 
               <p>Total Words : {text.split(" ").length} and Total Charactes : {text.length}</p>
             </div> */}
-        </div>
+        </div>  
     )
 }
 
