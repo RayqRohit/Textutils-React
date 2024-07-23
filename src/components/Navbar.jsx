@@ -36,8 +36,19 @@ const Navbar = (props) => {
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                             <button className="btn btn-outline-success" type="submit">Search</button>
                         </form>
+
+                        {/* <div className='d-flex'>
+                            <div onClick={()=>{props.toggleMode("primary")}} className='bg-primary rounded mx-2' style={{ height : "30px", width: "30px", cursor: "pointer" }}></div>
+                            <div onClick={()=>{props.toggleMode("danger")}} className='bg-danger rounded mx-2' style={{ height : "30px", width: "30px", cursor: "pointer" }}></div>
+                            <div onClick={()=>{props.toggleMode("success")}} className='bg-success rounded mx-2' style={{ height : "30px", width: "30px", cursor: "pointer" }}></div>
+                            <div onClick={()=>{props.toggleMode("warning")}} className='bg-warning rounded mx-2' style={{ height : "30px", width: "30px", cursor: "pointer" }}></div>
+                            <div onClick={()=>{props.toggleMode("light")}} className='bg-light rounded mx-2' style={{ height : "30px", width: "30px", cursor: "pointer" }}></div>
+                            <div onClick={()=>{props.toggleMode("dark")}} className='bg-dark rounded mx-2' style={{ height : "30px", width: "30px", cursor: "pointer" }}></div>
+                            
+                        </div> */}
+
                         <div className={`form-check form-switch text-${props.mode === "light" ? "dark" : "light"}`}>
-                            <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+                            <input className="form-check-input" onClick={()=> props.toggleMode(null)} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
                           {props.mode === "dark"? "Disable" : "enable"} Darkmode
                         </div>
                     </div>
